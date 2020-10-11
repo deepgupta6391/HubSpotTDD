@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="3" guice-stage="DEVELOPMENT" name="Failed suite [HubSpot Regression Suite]" parallel="tests">
+  <test thread-count="3" name="Login Page Test(failed)" parallel="tests">
+    <classes>
+      <class name="com.qa.hubspot.tests.LoginPageTest">
+        <methods>
+          <include name="setUp"/>
+          <include name="afterClass"/>
+          <include name="tearDown"/>
+          <include name="beforeClass"/>
+          <include name="loginTest"/>
+        </methods>
+      </class> <!-- com.qa.hubspot.tests.LoginPageTest -->
+    </classes>
+  </test> <!-- Login Page Test(failed) -->
+</suite> <!-- Failed suite [HubSpot Regression Suite] -->
