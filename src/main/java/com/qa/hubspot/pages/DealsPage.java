@@ -1,8 +1,12 @@
 package com.qa.hubspot.pages;
 
+import org.openqa.selenium.WebDriver;
+
 public class DealsPage {
 
-	public DealsPage() {
-		// TODO Auto-generated constructor stub
+	WebDriver driver;
+
+	public DealsPage(WebDriver driver) {
+		this.driver = driver;
 	}
 }
