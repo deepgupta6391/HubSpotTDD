@@ -14,6 +14,7 @@ public class DealsPage extends BasePage{
 	By dealsHeader=By.xpath("//span[@class='private-dropdown__item__label' and text()='Deals']");
 	By createDealBtn=By.xpath("//span[text()='Create deal']");
 	By dealname=By.xpath("//textarea[@data-field='dealname']");
+	By amount=By.xpath("//input[@data-field='amount']");
 
 	public DealsPage(WebDriver driver) {
 		this.driver = driver;
