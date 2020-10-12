@@ -13,6 +13,7 @@ public class DealsPage extends BasePage{
 	//OR:
 	By dealsHeader=By.xpath("//span[@class='private-dropdown__item__label' and text()='Deals']");
 	By createDealBtn=By.xpath("//span[text()='Create deal']");
+	By dealname=By.xpath("//textarea[@data-field='dealname']");
 
 	public DealsPage(WebDriver driver) {
 		this.driver = driver;
