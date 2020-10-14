@@ -18,7 +18,7 @@
 		</classes>
 	</test> <!-- Test -->
 
-	<test name="Home Page Test">
+<!-- 	<test name="Home Page Test">
 		<parameter name="browser" value="firefox" />
 		<classes>
 			<class name="com.qa.hubspot.tests.HomePageTest" />
@@ -31,6 +31,6 @@
 			<class name="com.qa.hubspot.tests.ContactsPageTest" />
 		</classes>
 	</test>
-
+ -->
 
 </suite> <!-- Regression Suite -->
