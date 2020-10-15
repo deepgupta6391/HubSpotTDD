@@ -12,7 +12,7 @@ public class Constants {
 	public static final String PASSWORD_LABEL = "Password";
 	public static final String SHOW_PASS = "Show Password";
 	public static final String HIDE_PASS = "Hide Password";
-	public static final String FOOTER_TEXT = "Â©2020 HubSpot, Inc. All Rights Reserved.";
+	public static final String FOOTER_TEXT = "©2020 HubSpot, Inc. All Rights Reserved.";
 
 	// *************************HOME PAGE************************************
 	public static final String HOME_PAGE_TITLE = "Reports dashboard";
