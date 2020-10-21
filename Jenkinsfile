@@ -1,27 +1,59 @@
 pipeline {
    agent any
    stages {
-		stage('Running test on diff env'){
+	
+		stage('Build QA') {
+			parallel {
+				stage('Build QA') {
+				  steps {
+					sh 'mvn clean install -DskipTests=true'
+				  }
+				}
+
+				stage('chrome') {
+				  steps {
+					sh 'mvn test -Denv=qa -Dbrowser=chrome'
+				  }
+				}
+
+			}
+		}
+		
+		stage('Build Stage'){
 			parallel{
-				stage('Test Run on QA') {
+				stage('Build Stage') {
 				 steps {
-					sh 'mvn clean install -Denv="qa" -Dbrowser="chrome"'
+					sh 'mvn clean install -DskipTests=true'
+				 }
+				}
+				stage('Build Stage') {
+				 steps {
+					sh 'mvn clean install -Denv="stage" -Dbrowser="chrome"'
 				 }
 				}
 				stage('Test Run on Stage') {
 				 steps {
-					sh 'mvn clean install -Denv="stage"'
+					sh 'mvn clean install -Denv="stage" -Dbrowser="firefox"'
 				 }
 				}
 			}
 		}
-		stage('final') {
-         steps {
-            sh 'echo "test execution is done"'
-         }
+		
+		stage('Publish reports') {
+			steps {
+				script{
+					publishHTML([
+						allowMissing: false,
+						alwaysLinkToLastBuild: false,
+						keepAll: false,
+						reportDir: 'build',
+						reportFiles: 'TestExecutionReport.html',
+						reportName: 'Extent HTML Report',
+						reportTitles: ''])
+				}
+			}
 		}
-	}
-      
+    }
 	
 	tools {
       maven "M3"
