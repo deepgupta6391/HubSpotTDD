@@ -21,7 +21,7 @@ pipeline {
 		
 		stage('Build Stage'){
 			parallel{
-						stage('Build QA') {
+						stage('Build Stage') {
 				  steps {
 					sh 'mvn clean install -DskipTests=true'
 				  }
@@ -29,13 +29,13 @@ pipeline {
 
 				stage('chrome') {
 				  steps {
-					sh 'mvn test -Denv=qa -Dbrowser=chrome'
+					sh 'mvn test -Denv=stage -Dbrowser=chrome'
 				  }
 				}
 
 				stage('firefox') {
 				  steps {
-					sh 'mvn test -Denv=qa -Dbrowser=firefox'
+					sh 'mvn test -Denv=stage -Dbrowser=firefox'
 				  }
 				}
 			}
