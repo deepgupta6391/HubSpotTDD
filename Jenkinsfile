@@ -4,7 +4,7 @@ pipeline {
 	
 		stage('Build QA') {
 			parallel {
-				stage('Build QA') {
+						stage('Build QA') {
 				  steps {
 					sh 'mvn clean install -DskipTests=true'
 				  }
@@ -21,22 +21,22 @@ pipeline {
 		
 		stage('Build Stage'){
 			parallel{
-				stage('Build Stage') {
-				 steps {
+						stage('Build QA') {
+				  steps {
 					sh 'mvn clean install -DskipTests=true'
-				 }
+				  }
 				}
-				
+
 				stage('chrome') {
-				 steps {
-					sh 'mvn test -Denv="stage" -Dbrowser="chrome"'
-				 }
+				  steps {
+					sh 'mvn test -Denv=qa -Dbrowser=chrome'
+				  }
 				}
-				
+
 				stage('firefox') {
-				 steps {
-					sh 'mvn test -Denv="stage" -Dbrowser="firefox"'
-				 }
+				  steps {
+					sh 'mvn test -Denv=qa -Dbrowser=firefox'
+				  }
 				}
 			}
 		}
