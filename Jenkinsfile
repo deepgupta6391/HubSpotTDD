@@ -26,14 +26,16 @@ pipeline {
 					sh 'mvn clean install -DskipTests=true'
 				 }
 				}
+				
 				stage('chrome') {
 				 steps {
-					sh 'mvn clean install -Denv="stage" -Dbrowser="chrome"'
+					sh 'mvn test -Denv="stage" -Dbrowser="chrome"'
 				 }
 				}
+				
 				stage('firefox') {
 				 steps {
-					sh 'mvn clean install -Denv="stage" -Dbrowser="firefox"'
+					sh 'mvn test -Denv="stage" -Dbrowser="firefox"'
 				 }
 				}
 			}
